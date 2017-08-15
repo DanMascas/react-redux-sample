@@ -3,9 +3,21 @@ import {Link, browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import FilmeList from './FilmeList';
+import Search from '../common/Search';
 import * as actions from '../../actions/filmeActions';
 
 class FilmePage extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            filterText:''
+        }
+    }
+    filterUpdate(value) {
+        this.setState({
+            filterText: value
+        });
+    }
     componentWillMount() {
         if (this.props.filme[0].id == '') {
             this.props.actions.loadFilme();
@@ -17,8 +29,16 @@ class FilmePage extends React.Component {
         return (
             <div className="col-md-12">
                 <h1>Filme</h1>
+                <Search
+                    filterVal={this.state.filterText}
+                    filterUpdate={this.filterUpdate.bind(this)}
+                />
+                <br/>
                 <div className="col-md-4">
-                    <FilmeList filme={filme}/>
+                    <FilmeList 
+                        filme={filme}
+                        filter={this.state.filterText}
+                    />
                 </div>
                 <div className="col-md-8">
                     {this.props.children}
