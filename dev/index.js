@@ -1,8 +1,18 @@
+import 'babel-polyfill';
 import React from 'react';
-import ReactDOM from "react-dom";
-import App from './App';
+import {render} from 'react-dom';
+import configureStore from './store/configureStore';
+import {Provider} from 'react-redux';
+import {Router, browserHistory} from 'react-router';
+import routes from './routes';
+import {loadFilme} from './actions/filmeActions';
 
-ReactDOM.render(
-        <App/>,
+const store = configureStore();
+store.dispatch(loadFilme());
+
+render(
+    <Provider store={store}>
+        <Router history={browserHistory} routes={routes}/>
+    </Provider>,
     document.getElementById('root')
 );
