@@ -11,13 +11,29 @@ class FilmPage extends React.Component {
 		}
 	}
 	render() {
+        var styleposter = {
+            width: '100%',
+            height:'300px'
+        };
+        var styleiframe = {
+            width: '100%',
+            height: '300px'
+        };
         return (
             <div className="col-md-8 col-md-offset-2">
-                <h1>Titlu: {this.props.film.title}</h1>
-                <h1>An: {this.props.film.year}</h1>
-                <h1>Descriere: {this.props.film.description}</h1>
-                <h1>Poster: {this.props.film.poster}</h1>
-                <h1>Trailer: {this.props.film.trailer}</h1>
+                <h1>{this.props.film.title}</h1>
+                <br/>
+                <div>
+                  <div className="col-md-4">
+                    <img style={styleposter} src={this.props.film.poster} />
+                  </div>
+                  <div className="col-md-8">
+                    <iframe style={styleiframe} src="https://www.youtube.com/embed/ni4tEtuTccc" frameBorder='0' allowFullScreen></iframe>
+                  </div>
+                </div>
+                <br/>
+                <h5><b>An: </b>{this.props.film.year}</h5>
+                <p><b>Descriere: </b>{this.props.film.description}</p>
             </div>
         );
 	}

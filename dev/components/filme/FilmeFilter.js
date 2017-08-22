@@ -24,9 +24,9 @@ export default class FilmeFilter extends Component {
     render() {
         const {data, filter}=this.props;
         return (
-            <ul>
+            <div>
                 {this.cautareFilme(data, filter)}
-            </ul>
+            </div>
         )
     }
 }

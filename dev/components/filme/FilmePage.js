@@ -26,9 +26,12 @@ class FilmePage extends React.Component {
 
     render() {
         const filme = this.props.filme;
+        var styleh1 = {
+              marginLeft: 30
+        };
         return (
             <div className="col-md-12">
-                <h1>Filme</h1>
+                <h1 style={styleh1}>Filme</h1>
                 <Search
                     filterVal={this.state.filterText}
                     filterUpdate={this.filterUpdate.bind(this)}
