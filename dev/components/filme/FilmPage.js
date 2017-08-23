@@ -13,11 +13,14 @@ class FilmPage extends React.Component {
 	render() {
         var styleposter = {
             width: '100%',
-            height:'300px'
+            height:'350px'
         };
         var styleiframe = {
             width: '100%',
-            height: '300px'
+            height: '350px'
+        };
+        var styletext = {
+            fontSize: '16px'
         };
         return (
             <div className="col-md-8 col-md-offset-2">
@@ -28,12 +31,13 @@ class FilmPage extends React.Component {
                     <img style={styleposter} src={this.props.film.poster} />
                   </div>
                   <div className="col-md-8">
-                    <iframe style={styleiframe} src="https://www.youtube.com/embed/ni4tEtuTccc" frameBorder='0' allowFullScreen></iframe>
+                    <iframe style={styleiframe} src={this.props.film.trailer} frameBorder='0' allowFullScreen></iframe>
                   </div>
                 </div>
                 <br/>
-                <h5><b>An: </b>{this.props.film.year}</h5>
-                <p><b>Descriere: </b>{this.props.film.description}</p>
+                <p style={styletext}><b>An: </b>{this.props.film.year}</p>
+                <p style={styletext}><b>Nota imdb: </b>{this.props.film.year}</p>
+                <p style={styletext}><b>Descriere: </b>{this.props.film.description}</p>
             </div>
         );
 	}

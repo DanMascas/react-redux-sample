@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
-export default class Film extends Component {
+export default class FilmManage extends Component {
     render() {
         const {id, film}=this.props;
         var stylepoza = {
@@ -15,7 +15,7 @@ export default class Film extends Component {
         return (
            	<div className="col-lg-6 col-md-6 col-sm-12">
 		    	<div className="thumbnail">
-		      		<Link to={'/filme/' + film.id} style={stylelink}>
+		      		<Link to={'/manage/' + film.id} style={stylelink}>
 		        		<img src={film.poster} alt={film.title} style={stylepoza}/>
 		        		<div className="caption" style={styletitle} >
 		          			<p><b>{film.title}</b></p>

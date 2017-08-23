@@ -49,9 +49,23 @@ class ManageFilmPage extends React.Component {
     return this.setState({film: film})
   }
 	render() {
+    var styleposter = {
+      width: '100%',
+      height:'350px'
+    };
+    var styleiframe = {
+      width: '100%',
+      height: '350px'
+    };
+    var styletext = {
+      fontSize: '16px'
+    };
+    var stylebutton = {
+      marginLeft: '10px'
+    };
     if (this.state.isEditing) {
       return(
-          <div>
+          <div className="col-md-8 col-md-offset-2">
             <h1>Edit Film</h1>
             <FilmForm
               film={this.state.film}
@@ -62,15 +76,25 @@ class ManageFilmPage extends React.Component {
         )
     }
     return (
-        <div className="col-md-8 col-md-offset-2">
-            <h1>Titlu: {this.state.film.title}</h1>
-            <h1>An: {this.state.film.year}</h1>
-            <h1>Descriere: {this.state.film.description}</h1>
-            <h1>Poster: {this.state.film.poster}</h1>
-            <h1>Trailer: {this.state.film.trailer}</h1>
-            <button className="btn btn-default" onClick={this.toggleEdit}>Edit</button>
-            <button className="btn btn-default" onClick={this.deleteFilm}>Delete</button>
+      <div className="col-md-8 col-md-offset-2">
+        <h1>{this.state.film.title}</h1>
+        <br/>
+        <div>
+          <div className="col-md-4">
+            <img style={styleposter} src={this.state.film.poster} />
+          </div>
+          <div className="col-md-8">
+            <iframe style={styleiframe} src={this.state.film.trailer} frameBorder='0' allowFullScreen></iframe>
+          </div>
         </div>
+        <br/>
+        <p style={styletext}><b>An: </b>{this.state.film.year}</p>
+        <p style={styletext}><b>Nota imdb: </b>{this.state.film.year}</p>
+        <p style={styletext}><b>Descriere: </b>{this.state.film.description}</p>
+        <hr/>
+        <button className="btn btn-info" onClick={this.toggleEdit}>Edit</button>
+        <button style={stylebutton} className="btn btn-danger" onClick={this.deleteFilm}>Delete</button>
+      </div>
     );
 	}
 }

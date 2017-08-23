@@ -1,15 +1,18 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
+import ManageFilmeFilter from './ManageFilmeFilter';
 
-const ManageFilmeList = ({filme}) => {
-    return (
-        <ul className="list-group">
-            {filme.map(film =>
-                <li className="list-group-item" key={film.id}><Link to={'/manage/' + film.id}>{film.title}</Link></li>
-            )}
-        </ul>
-    );
-};
+class ManageFilmeList extends React.Component{
+	render(){
+		const {filme, filter} = this.props;
+		return(
+			<ManageFilmeFilter 
+				data={filme}
+				filter={filter}
+			/>
+		)
+	}
+}
 
 ManageFilmeList.propTypes = {
     filme: PropTypes.array.isRequired
