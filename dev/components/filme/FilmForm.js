@@ -31,6 +31,12 @@ class FilmForm extends React.Component {
             type='text'
             value={this.props.film.year}
             onChange={this.props.onChange}/>
+          <TextInput
+            name="nota"
+            label="Nota imdb"
+            type='text'
+            value={this.props.film.nota}
+            onChange={this.props.onChange}/>
           <TextArea
             name="description"
             label="Descriere"

@@ -13,7 +13,8 @@ class ManageNewFilmPage extends React.Component{
 				year: '',
 				description: '',
 				poster: '',
-				trailer: ''
+				trailer: '',
+				nota: ''
 			},
 			saving:false
 		};
@@ -33,8 +34,8 @@ class ManageNewFilmPage extends React.Component{
   	}
   	render(){
   		return(
-  			<div>
-				<h1>New film</h1>
+  			<div className="col-md-8 col-md-offset-2">
+				<h1>Film nou</h1>
 				<FilmForm
 					film={this.state.film}
 					onSave={this.saveFilm}

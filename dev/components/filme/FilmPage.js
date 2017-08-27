@@ -36,7 +36,7 @@ class FilmPage extends React.Component {
                 </div>
                 <br/>
                 <p style={styletext}><b>An: </b>{this.props.film.year}</p>
-                <p style={styletext}><b>Nota imdb: </b>{this.props.film.year}</p>
+                <p style={styletext}><b>Nota imdb: </b>{this.props.film.nota}</p>
                 <p style={styletext}><b>Descriere: </b>{this.props.film.description}</p>
             </div>
         );
@@ -46,7 +46,7 @@ FilmPage.propTypes ={
 	film: PropTypes.object.isRequired
 };
 function mapStateToProps(state, ownProps) {  
-  let film = {title: '', year: '', description: '', poster: '', trailer:''};
+  let film = {title: '', year: '', description: '', poster: '', trailer:'',nota:''};
   const filmId = ownProps.params.id;
   if (state.filme.length > 0) {
     film = Object.assign({}, state.filme.find(film => film.id == filmId))

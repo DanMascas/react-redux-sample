@@ -62,7 +62,7 @@ function mapStateToProps(state, ownProps) {
         };
     } else {
         return {
-            filme: [{id: '', title: '', year: '',description: '',poster: '',trailer: ''}]
+            filme: [{id: '', title: '', year: '',description: '',poster: '',trailer: '',nota:''}]
         }
     }
 }

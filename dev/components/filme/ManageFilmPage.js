@@ -89,7 +89,7 @@ class ManageFilmPage extends React.Component {
         </div>
         <br/>
         <p style={styletext}><b>An: </b>{this.state.film.year}</p>
-        <p style={styletext}><b>Nota imdb: </b>{this.state.film.year}</p>
+        <p style={styletext}><b>Nota imdb: </b>{this.state.film.nota}</p>
         <p style={styletext}><b>Descriere: </b>{this.state.film.description}</p>
         <hr/>
         <button className="btn btn-info" onClick={this.toggleEdit}>Edit</button>
@@ -107,7 +107,7 @@ function getFilmById(filme, id) {
     return Object.assign({}, film)
   }
 function mapStateToProps(state, ownProps) {  
-  let film = {title: '', year: '', description: '', poster: '', trailer:''};
+  let film = {title: '', year: '', description: '', poster: '', trailer:'',nota:''};
   const filmId = ownProps.params.id;
   if (filmId && state.filme.length > 0) {
     // film = Object.assign({}, state.filme.find(film => film.id == filmId))
